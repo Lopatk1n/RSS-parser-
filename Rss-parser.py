@@ -54,7 +54,8 @@ for i, link in enumerate(temp_df['link']):
     
     # get the image if there is and save
     
-    image_blocks = soup.find_all('img',class_='js-lazyimage-source')
+    post_block = soup.find('div',class_='grid_cell grid_cell_big js-middle')
+    image_blocks = post_block.find_all('img',class_='js-lazyimage-source')
     image_links = list(map(lambda x: x.get('data-lazyimage-src'),\
                            image_blocks))
     for current_link in image_links:
